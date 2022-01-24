@@ -25,76 +25,12 @@ variable "skip_region_validation" {
   default     = false
 }
 
-#############
-# cms_alarm
-#############
-variable "enable_alarm_rule" {
-  description = "Whether to enable alarm rule. Default to true. "
-  type        = bool
-  default     = true
-}
-
-variable "alarm_rule_name" {
-  description = "The alarm rule name. "
-  type        = string
-  default     = ""
-}
-
-variable "alarm_rule_period" {
-  description = "Index query cycle, which must be consistent with that defined for metrics. Default to 300, in seconds. "
-  type        = number
-  default     = 300
-}
-
-variable "alarm_rule_statistics" {
-  description = "Statistical method. It must be consistent with that defined for metrics. Valid values: ['Average', 'Minimum', 'Maximum']. Default to 'Average'. "
-  type        = string
-  default     = "Average"
-}
-
-variable "alarm_rule_operator" {
-  description = "Alarm comparison operator. Valid values: ['<=', '<', '>', '>=', '==', '!=']. Default to '=='. "
-  type        = string
-  default     = "=="
-}
-
-variable "alarm_rule_threshold" {
-  description = "Alarm threshold value, which must be a numeric value currently. "
-  type        = string
-  default     = ""
-}
-
-variable "alarm_rule_triggered_count" {
-  description = "Number of consecutive times it has been detected that the values exceed the threshold. Default to 3. "
-  type        = number
-  default     = 3
-}
-
-variable "alarm_rule_contact_groups" {
-  description = "List contact groups of the alarm rule, which must have been created on the console. "
-  type        = list(string)
-  default     = []
-}
-
-variable "alarm_rule_silence_time" {
-  description = "Notification silence period in the alarm state, in seconds. Valid value range: [300, 86400]. Default to 86400. "
-  type        = number
-  default     = 86400
-}
-
-variable "alarm_rule_effective_interval" {
-  description = "The interval of effecting alarm rule. It foramt as 'hh:mm-hh:mm', like '0:00-4:00'."
-  type        = string
-  default     = "0:00-2:00"
-}
-
 ##############################################################
 # Mongodb Instance
 ##############################################################
 variable "engine_version" {
   description = "The version number of the database. Valid value: 3.2, 3.4, 4.0. "
   type        = string
-  default     = ""
 }
 
 variable "db_instance_storage" {
@@ -106,7 +42,6 @@ variable "db_instance_storage" {
 variable "db_instance_class" {
   description = "The specification of the instance. For more information about the value, see https://www.alibabacloud.com/help/doc-detail/57141.htm"
   type        = string
-  default     = ""
 }
 
 variable "storage_engine" {
@@ -118,7 +53,6 @@ variable "storage_engine" {
 variable "name" {
   description = " The name of DB instance. It a string of 2 to 256 characters"
   type        = string
-  default     = ""
 }
 
 variable "instance_charge_type" {
@@ -153,7 +87,6 @@ variable "security_ip_list" {
 variable "account_password" {
   description = "Password of the root account. It is a string of 6 to 32 characters and is composed of letters, numbers, and underlines"
   type        = string
-  default     = ""
 }
 
 variable "replication_factor" {
@@ -165,7 +98,6 @@ variable "replication_factor" {
 variable "backup_period" {
   description = "MongoDB Instance backup period. It is required when backup_time was existed. Valid values: [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]. Default to [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]. "
   type        = list(string)
-  default     = []
 }
 
 variable "backup_time" {
